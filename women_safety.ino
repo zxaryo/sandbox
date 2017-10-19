@@ -26,6 +26,7 @@ void setup()
   pinMode(7,OUTPUT);
   pinMode(8,OUTPUT);
   pinMode(6,INPUT);
+  diggitalWrite(7,HIGH);
   lcd.print("Safe Mode");
 }
 void help()
@@ -34,8 +35,8 @@ void help()
   lcd.print("Sending Location");
   lcd.setCursor(0,1);
   lcd.print("+91 8281xxxxxx);
-  delay(500);
-  digitalWrite(7,LOW);
+  delay(5000);
+  digitalWrite(7,HIGH);
   delay(1500);
   lcd.clear();
   lcd.setCursor(0,0);
@@ -45,12 +46,12 @@ void help()
   delay(40000);
 }
 void loop() 
-{
+{ 
   if(digitalRead(6)==0||i==1) //6 Pulled up using resistor
    {
     help();
     i=1;
-    digitalWrite(7,HIGH); //GSM-GPS Module
+    digitalWrite(7,LOW); //GSM-GPS Module
     digitalWrite(8,HIGH); //Alarm
    }
   delay(50);
